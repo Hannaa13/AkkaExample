@@ -52,7 +52,7 @@ object Supervision extends App {
         childRef ! Report("")
     }
 
-    val supervisionStrategy: OneForOneStrategy = OneForOneStrategy() {
+    override val supervisorStrategy: OneForOneStrategy = OneForOneStrategy() {
       case _: Exception => Escalate
       case _: RuntimeException => Resume
       case _: IllegalArgumentException => Stop
