@@ -5,7 +5,6 @@ import akka.actor.typed.scaladsl.Behaviors
 import akka.actor.typed.{Behavior, SupervisorStrategy}
 import akka.actor.{Actor, OneForOneStrategy, Props}
 
-
 object Supervision extends App {
 
   import akka.actor.ActorSystem
@@ -14,7 +13,6 @@ object Supervision extends App {
   val command = system.actorOf(Props[SupervisionActor], "command")
 
   command ! Props[ActorInc]
-
 
   case class Report(msg: String)
 
